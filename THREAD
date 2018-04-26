@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <stdio.h>
 #include<stdlib.h>
 #include<pthread.h>
@@ -66,7 +65,3 @@ end=(int)arg+100;
 	}
 	pthread_exit(NULL);
 }
-=======
-# Assignment-5
-C program threading
->>>>>>> 8f15b8005efdc21596cb6936152c917999cff65a
