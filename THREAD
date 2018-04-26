@@ -7,6 +7,7 @@ int array[1000];
 
 void * MyThread(void * arg);
 
+
 int main()
 {
 
@@ -19,49 +20,194 @@ for(i=0;i<1000;i++)
 
 int sum=0;
 
-	pthread_t t1;//,t2,t3,t4,t5,t6,t7,t8,t9,t10;
+	pthread_t t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
 
-	pthread_create(&t1,NULL,MyThread,(void *)array[0]);
-	//pthread_create(&t2,NULL,MyThread,(void *)array[100]);
-	//pthread_create(&t3,NULL,MyThread,(void *)array[200]);
-	//pthread_create(&t4,NULL,MyThread,(void *)array[300]);
-	//pthread_create(&t5,NULL,MyThread,(void *)array[400]);
-	//pthread_create(&t6,NULL,MyThread,(void *)array[500]);
-	//pthread_create(&t7,NULL,MyThread,(void *)array[600]);
-	//pthread_create(&t8,NULL,MyThread,(void *)array[700]);
-	//pthread_create(&t9,NULL,MyThread,(void *)array[800]);
-	//pthread_create(&t10,NULL,MyThread,(void *)array[900]);
+	pthread_create(&t1,NULL,MyThread,(void *)array);
+	pthread_create(&t2,NULL,MyThread,(void *)array);
+	pthread_create(&t3,NULL,MyThread,(void *)array);
+	pthread_create(&t4,NULL,MyThread,(void *)array);
+	pthread_create(&t5,NULL,MyThread,(void *)array);
+	pthread_create(&t6,NULL,MyThread,(void *)array);
+	pthread_create(&t7,NULL,MyThread,(void *)array);
+	pthread_create(&t8,NULL,MyThread,(void *)array);
+	pthread_create(&t9,NULL,MyThread,(void *)array);
+	pthread_create(&t10,NULL,MyThread,(void *)array);
 
-	pthread_join(t1,sum);
-	//pthread_join(t2,int Totalt2);
-	//pthread_join(t3,int Totalt3);
-	//pthread_join(t4,int Totalt4);
-	//pthread_join(t5,int Totalt5);
-	//pthread_join(t6,int Totalt6);
-	//pthread_join(t7,int Totalt7);
-	//pthread_join(t8,int Totalt8);
-	//pthread_join(t9,int Totalt9);
-	//pthread_join(t10,int Totalt10);
+	int * total[10];
 
-	//printf("%d",Totalt1+Totalt2+Totalt3+Totalt4+Totalt5+Totalt6+Totalt7+Totalt8+Totalt9+Totalt10)
+	pthread_join(t1,(void *) total[0]);
+	pthread_join(t2,(void *) total[1]);
+	pthread_join(t3,(void *) total[2]);
+	pthread_join(t4,(void *) total[3]);
+	pthread_join(t5,(void *) total[4]);
+	pthread_join(t6,(void *) total[5]);
+	pthread_join(t7,(void *) total[6]);
+	pthread_join(t8,(void *) total[7]);
+	pthread_join(t9,(void *) total[8]);
+	pthread_join(t10,(void *) total[9]);
 
+	int sum=0;
 
-	
+	int i;
+
+	for(i=0;i<10;i++)
+	{
+		sum=sum+(int) total[i];
+	}	
+
+	printf("/n sum is : %d",sum);
+
 return 0;
 
 }
 
-void * MyThread(void * arg)
+void * MyThreadt1(void * arg)
 {
-	int i,sum=0;
+	int * a=(int *) arg;
+	int i;
 
-int end;
+	int temp=0;
 
-end=(int)arg+100;
-
-	for(i=(int)arg;i<=end;i++);
+	for (i=0;i<100;i++)
 	{
-		sum=sum+array[i];
+		temp=temp+array[i];
+	
 	}
-	pthread_exit(NULL);
+	return (void *)temp;
+	
+}
+void * MyThreadt2(void * arg)
+{
+	int * a=(int *) arg;
+	int i;
+
+	int temp=0;
+
+	for (i=100;i<200;i++)
+	{
+		temp=temp+array[i];
+	
+	}
+	return (void *)temp;
+	
+}
+void * MyThreadt3(void * arg)
+{
+	int * a=(int *) arg;
+	int i;
+
+	int temp=0;
+
+	for (i=200;i<300;i++)
+	{
+		temp=temp+array[i];
+	
+	}
+	return (void *)temp;
+	
+}
+void * MyThreadt4(void * arg)
+{
+	int * a=(int *) arg;
+	int i;
+
+	int temp=0;
+
+	for (i=300;i<400;i++)
+	{
+		temp=temp+array[i];
+	
+	}
+	return (void *)temp;
+	
+}
+void * MyThreadt5(void * arg)
+{
+	int * a=(int *) arg;
+	int i;
+
+	int temp=0;
+
+	for (i=400;i<500;i++)
+	{
+		temp=temp+array[i];
+	
+	}
+	return (void *)temp;
+	
+}
+void * MyThreadt6(void * arg)
+{
+	int * a=(int *) arg;
+	int i;
+
+	int temp=0;
+
+	for (i=500;i<600;i++)
+	{
+		temp=temp+array[i];
+	
+	}
+	return (void *)temp;
+	
+}
+void * MyThreadt7(void * arg)
+{
+	int * a=(int *) arg;
+	int i;
+
+	int temp=0;
+
+	for (i=600;i<700;i++)
+	{
+		temp=temp+array[i];
+	
+	}
+	return (void *)temp;
+	
+}
+void * MyThreadt8(void * arg)
+{
+	int * a=(int *) arg;
+	int i;
+
+	int temp=0;
+
+	for (i=700;i<800;i++)
+	{
+		temp=temp+array[i];
+	
+	}
+	return (void *)temp;
+	
+}
+void * MyThreadt9(void * arg)
+{
+	int * a=(int *) arg;
+	int i;
+
+	int temp=0;
+
+	for (i=800;i<900;i++)
+	{
+		temp=temp+array[i];
+	
+	}
+	return (void *)temp;
+	
+}
+void * MyThreadt10(void * arg)
+{
+	int * a=(int *) arg;
+	int i;
+
+	int temp=0;
+
+	for (i=900;i<1000;i++)
+	{
+		temp=temp+array[i];
+	
+	}
+	return (void *)temp;
+	
 }
